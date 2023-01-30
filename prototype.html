@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+
+body{
+    background-color: rgb(0, 0, 0);
+    margin:1cm;
+}
+.dropbtn {
+  background-color: #efeff3;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rgb(195, 194, 199);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin:1cm;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 300px;
+  max-height: 300px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.nb{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.li {
+  float: left;
+}
+
+.lia {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.lia:hover {
+  background-color: #111;
+}
+
+.heading{
+    text-align: center;
+    color:aquamarine;
+    font-size: 2cm;
+}
+
+h2{
+    color:rgb(255, 255, 255);
+    font-size: 1cm;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png'); 
+  background-position: 10px 12px; 
+  background-repeat: no-repeat; 
+  width:30cm; 
+  font-size: 16px; 
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd; 
+  margin: 12px; 
+  align-self: center;
+}
+img{
+    height:4cm;
+    margin:5px;
+}
+
+</style>
+</head>
+<body>
+    <ul class="nb">
+        <li class="li"><a class="lia" href="#home">Home</a></li>
+        <li class="li"><a class="lia" href="#contact">Contact</a></li>
+        <li class="li"><a class="lia" href="#">Genre</a></li>
+        <li class="li" style="float:right"><a class="lia" href="#about">About</a></li>
+      </ul>
+
+<h1 class="heading" >Chill Point</h1>
+
+<div class="dropdown">
+    <input type="text" id="myInput" class="dropbtn" onclick="fshow()" onkeyup="myFunction()" placeholder="Search for shows...">
+    <div id="myDropdown" class="dropdown-content">
+  
+      <ul id="myUL">
+      <li><a href="">originals</a></li>
+      <li><a href="">friends</a></li>
+      <li><a href="">vanmpire d</a></li>
+      <li><a href="">b99</a></li>
+      <li><a href="">himym</a></li>
+      <li><a href="">bbt</a></li>
+    </ul>
+    </div>
+  </div> 
+    
+<h2>Top Trending</h2>
+<a href=""><img class="img" src="https://i.pinimg.com/originals/3d/3d/d0/3d3dd0623bc62b347255f865f828c4de.webp"></a>
+<a href=""><img class="img" src="https://thumbs.dreamstime.com/b/friends-logo-friends-logo-white-background-vector-format-aviable-ai-132621611.jpg"></a>
+<a href=""><img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDyE3BQlkhtSYWIfycA9u--emM5YyPFXCQOqwqvlqIpA&s"></a>
+<a href=""><img class="img" src="https://www.pngall.com/wp-content/uploads/3/How-I-Met-Your-Mother-PNG-Free-Download.png"></a>
+<a href=""><img class="img" src="https://images5.alphacoders.com/836/836532.jpg"></a>
+
+<script>
+
+function fshow(){
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function myFunction() {
+
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+    } else {
+        li[i].style.display = "none";
+    }
+    }
+}
+
+</script>    
+</body>
+</html>
